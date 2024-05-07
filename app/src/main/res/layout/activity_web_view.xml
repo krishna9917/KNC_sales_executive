@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="title"
+            type="String" />
+        <variable
+            name="noInternet"
+            type="Boolean" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Activities.WebView.WebViewActivity">
+
+
+        <include
+            android:id="@+id/inclTitleBar"
+            layout="@layout/layout_common_title_bar"
+            android:title="@{title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <WebView
+            android:layout_width="match_parent"
+            android:id="@+id/webView"
+            android:visibility="@{noInternet?View.GONE:View.VISIBLE}"
+            android:layout_height="match_parent"/>
+
+        <include
+            android:id="@+id/llNoInternet"
+            layout="@layout/layout_no_item_found"
+            android:message="@{@string/no_internet_connection}"
+            android:icon="@{@drawable/img_no_internet}"
+            android:btnText="@{@string/retry}"
+            app:isVisible="@{noInternet}"
+            />
+
+
+
+    </LinearLayout>
+</layout>

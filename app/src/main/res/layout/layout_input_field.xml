@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.text.InputType"/>
+        <variable
+            name="hint"
+            type="String" />
+        <variable
+            name="inputType"
+            type="Integer" />
+
+        <variable
+            name="disable"
+            type="boolean" />
+
+        <variable
+            name="drawableEnd"
+            type="android.graphics.drawable.Drawable" />
+
+
+    </data>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        app:boxStrokeWidth="0dp"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/transparent"
+        app:boxCornerRadiusTopEnd="25dp"
+        app:boxCornerRadiusBottomEnd="25dp"
+        android:theme="@style/StyleThemeOverlay"
+        app:boxCornerRadiusBottomStart="25dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:boxCornerRadiusTopStart="25dp"
+        app:passwordToggleEnabled="@{inputType==InputType.TYPE_NUMBER_VARIATION_PASSWORD || inputType==InputType.TYPE_TEXT_VARIATION_PASSWORD}"
+        app:boxBackgroundColor="@color/color_grey_80"
+        app:hintAnimationEnabled="false"
+        android:layout_height="55dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:paddingVertical="16dp"
+            android:id="@+id/edtField"
+            android:paddingHorizontal="10dp"
+            android:cursorVisible="@{!disable}"
+            android:drawableEnd="@{drawableEnd}"
+            android:hint="@{hint}"
+            android:inputType="@{inputType!=0?inputType:InputType.TYPE_CLASS_TEXT}"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+</layout>

@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.KNC" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_theme_50</item>
+        <item name="android:textViewStyle">@style/StyleRegularFont</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:colorBackground">@color/color_theme_10</item>
+        <item name="android:windowAnimationStyle">@style/ActivityTransactionAnimation</item>
+    </style>
+    <style name="Theme.KNC" parent="Base.Theme.KNC" />
+</resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+<!--    full screen style -->
+    <style name="StyleFullScreenTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/gradient_theme</item>
+        <item name="android:windowAnimationStyle">@style/ActivityTransactionAnimation</item>
+    </style>
+
+
+    <style name="StyleThemeBackground" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/gradient_theme</item>
+        <item name="colorPrimary">@color/color_theme_50</item>
+        <item name="android:windowAnimationStyle">@style/ActivityTransactionAnimation</item>
+    </style>
+
+
+
+<!--  fonts -->
+    <style name="StyleBoldFont">
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="StyleMediumFont">
+        <item name="android:fontFamily">@font/medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="StyleRegularFont">
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+
+
+    <!--     input field theme-->
+    <style name="StyleInputField">
+        <item name="android:background">@drawable/bg_input_field</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:padding">14dp</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+
+
+
+
+    <!--    Activity transaction-->
+    <style name="ActivityTransactionAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">
+            @anim/anim_slide_in_right
+        </item>
+        <item name="android:activityOpenExitAnimation">
+            @anim/anim_slide_out_left
+        </item>
+        <item name="android:activityCloseEnterAnimation">
+            @anim/anim_slide_in_left
+        </item>
+        <item name="android:activityCloseExitAnimation">
+            @anim/anim_slide_out_right
+        </item>
+    </style>
+
+
+
+
+<!--for making cursor color black of EdiTextInput-->
+    <style name="StyleThemeOverlay" parent="">
+        <item name="colorControlActivated">@color/black</item>
+    </style>
+
+
+
+</resources>
+

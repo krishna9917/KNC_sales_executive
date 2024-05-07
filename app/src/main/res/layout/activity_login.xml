@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+  <data>
+    <import type="android.text.InputType"/>
+
+    <variable
+        name="isProgress"
+        type="Boolean" />
+  </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Login.LoginActivity">
+
+
+  <include
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:title="@{@string/login}"
+      android:id="@+id/inclTitleBar"
+      app:layout_constraintStart_toStartOf="parent"
+      layout="@layout/layout_common_title_bar"/>
+
+
+
+  <androidx.core.widget.NestedScrollView
+      android:layout_width="match_parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      android:fillViewport="true"
+      app:layout_constraintTop_toBottomOf="@id/inclTitleBar"
+      android:layout_height="0dp">
+
+    <LinearLayout
+        android:padding="15dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+      <include
+          android:layout_marginTop="15dp"
+          android:id="@+id/inclNumber"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          layout="@layout/layout_mobile_input_field"/>
+
+
+      <include
+          android:layout_marginTop="10dp"
+          android:id="@+id/inclPassword"
+          android:layout_height="wrap_content"
+          android:layout_width="match_parent"
+          layout="@layout/layout_input_field"
+          app:hint="@{@string/password}"
+          app:inputType="@{InputType.TYPE_TEXT_VARIATION_PASSWORD}"
+          />
+
+
+      <include
+          android:layout_width="match_parent"
+          android:layout_marginTop="50dp"
+          android:id="@+id/inclLogin"
+          android:layout_height="wrap_content"
+          app:btnText="@{@string/login}"
+          app:isProgress="@{isProgress}"
+          layout="@layout/layout_custom_btn"/>
+
+    </LinearLayout>
+
+
+  </androidx.core.widget.NestedScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

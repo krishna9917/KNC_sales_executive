@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="android.graphics.drawable.ColorDrawable" />
+        <import type="android.content.Context" />
+        <import type="android.content.res.ColorStateList"/>
+        <import type="androidx.core.content.ContextCompat"/>
+        <import type="com.application.knc.R"/>
+        <import type="android.graphics.Color" />
+        <variable
+            name="isProgress"
+            type="Boolean" />
+
+        <variable
+            name="isDisabled"
+            type="Boolean" />
+
+        <variable
+            name="btnText"
+            type="String" />
+
+        <variable
+            name="btnIcon"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="btnTextSize"
+            type="float"/>
+
+        <variable
+            name="btnTextColor"
+            type="int" />
+
+        <variable
+            name="btnColor"
+            type="int" />
+
+
+        <variable name="context" type="Context" />
+
+
+    </data>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:padding="5dp"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="50dp"
+        android:id="@+id/btn"
+        android:clickable="@{!isDisabled}"
+        android:focusable="@{!isDisabled}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="45dp">
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:background="@{btnColor!=0? context.getResources().getColor(btnColor):@color/color_theme_100}"
+          android:layout_height="match_parent">
+
+          <LinearLayout
+              android:layout_width="wrap_content"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              android:layout_height="wrap_content">
+
+              <ImageView
+                  android:layout_width="24dp"
+                  android:layout_marginHorizontal="5dp"
+                  android:layout_height="24dp"
+                  android:src="@{btnIcon}"
+                  android:visibility="@{btnIcon!=null?View.VISIBLE:View.GONE}"
+                  android:importantForAccessibility="no" />
+
+              <TextView
+                  android:text="@{btnText}"
+                  android:layout_width="match_parent"
+                  android:visibility="@{isProgress?View.GONE:View.VISIBLE}"
+                  android:textColor="@{btnTextColor!=0? @color/black:@color/white}"
+                  android:gravity="center"
+                  style="@style/StyleMediumFont"
+                  android:layout_height="wrap_content"/>
+
+          </LinearLayout>
+          <ProgressBar
+              android:layout_width="match_parent"
+              android:padding="10dp"
+              app:layout_constraintEnd_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              android:indeterminateTint="@{btnTextColor!=0? context.getResources().getColor(btnTextColor):@color/white}"
+              android:visibility="@{isProgress?View.VISIBLE:View.GONE}"
+              android:layout_height="match_parent"/>
+
+          <View
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              android:layout_width="0dp"
+              android:visibility="@{isProgress || isDisabled?View.VISIBLE:View.GONE}"
+              android:background="@color/color_grey_10"
+              android:layout_height="match_parent"/>
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

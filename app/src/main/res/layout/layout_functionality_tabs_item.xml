@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <import type="android.content.Context" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="com.application.knc.model.NameIcon" />
+
+
+        <variable
+            name="context"
+            type="Context" />
+
+    </data>
+
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    app:cardElevation="0dp"
+    android:clickable="true"
+    android:id="@+id/cvItems"
+    android:focusable="true"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="15dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:src="@{data.icon}"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+        <TextView
+            android:text="@{data.name}"
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:drawableEndCompat="@drawable/svg_arrow_right" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
+</layout>

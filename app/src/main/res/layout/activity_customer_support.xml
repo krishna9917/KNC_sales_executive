@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="customerSupportDetails"
+            type="com.application.knc.model.CustomerSupportDetails" />
+
+    </data>
+
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Activities.CustomerSupport.CustomerSupportActivity">
+
+
+        <include
+            android:id="@+id/inclTitleBar"
+            layout="@layout/layout_common_title_bar"
+            android:title="@{@string/customer_support}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:fillViewport="true"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:padding="35dp"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    app:lottie_rawRes="@raw/customer_support"
+                    android:layout_width="match_parent"
+                    app:lottie_autoPlay="true"
+                    app:lottie_renderMode="hardware"
+                    app:lottie_loop="true"
+                    android:layout_height="300dp"/>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/contact_us"
+                        style="@style/StyleBoldFont"
+                        android:textSize="17sp"
+                        android:layout_height="wrap_content"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:drawablePadding="10dp"
+                        style="@style/StyleRegularFont"
+                        android:layout_marginTop="18dp"
+                        android:gravity="center"
+                        android:text="@{customerSupportDetails.support_email}"
+                        android:layout_height="wrap_content"
+                        android:autoLink="email"
+                        android:textColorLink="@color/color_theme_100"
+                        app:drawableStartCompat="@drawable/svg_email" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:gravity="center"
+                        style="@style/StyleRegularFont"
+                        android:layout_marginTop="15dp"
+                        android:textColorLink="@color/color_theme_100"
+                        android:text='@{"+91"+customerSupportDetails.support_number}'
+                        android:autoLink="phone"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/svg_phone" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:drawablePadding="10dp"
+                        style="@style/StyleRegularFont"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/txtAddress"
+                        android:linksClickable="true"
+                        android:textColorLink="@color/color_theme_100"
+                        android:text='@{customerSupportDetails.support_address}'
+                        android:autoLink="map"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/svg_location" />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="color_black_90">#222020</color>
+
+
+<!--    white color -->
+    <color name="color_white_20">#B0FFFFFF</color>
+    <color name="color_white_10">#80FFFFFF</color>
+    <color name="color_white_5">#02FFFFFF</color>
+
+
+
+
+<!--    primary theme color-->
+    <color name="color_theme_100">#1F2B48</color>
+    <color name="color_theme_90">#28365A</color>
+    <color name="color_theme_60">#CE28365A</color>
+    <color name="color_theme_50">#5775BC</color>
+    <color name="color_theme_40">#4628365A</color>
+    <color name="color_theme_20">#AFC7FF</color>
+    <color name="color_theme_10">#E8ECF8</color>
+
+
+<!--    secondary theme color-->
+
+
+
+
+
+<!--    gray color-->
+    <color name="color_grey_100">#939090</color>
+    <color name="color_grey_90">#AEAAAA</color>
+    <color name="color_grey_80">#CAC8C8</color>
+    <color name="color_grey_40">#DDCAC8C8</color>
+    <color name="color_grey_10">#9CFFFCFC</color>
+
+
+<!--transparent-->
+    <color name="transparent">#00000000</color>
+
+
+
+<!--   green color -->
+    <color name="color_green_100">#8BC34A</color>
+    <color name="color_green_90">#BEA8DF67</color>
+    <color name="color_green_80">#BEB6DF86</color>
+
+
+</resources>

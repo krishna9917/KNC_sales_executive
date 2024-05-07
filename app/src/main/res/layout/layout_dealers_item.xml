@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <data>
+
+        <import type="android.view.View"/>
+        <import type="android.text.Html"/>
+        <variable
+            name="data"
+            type="com.application.knc.model.Dealer" />
+
+
+        <variable
+            name="showShimmer"
+            type="Boolean" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/color_grey_40"
+        android:layout_margin="10dp"
+        app:strokeWidth="0.5dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:layout_width="match_parent"
+            app:shimmer_auto_start="true"
+            android:visibility="@{showShimmer?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="180dp">
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/color_grey_90"
+                android:layout_height="match_parent"/>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:padding="15dp"
+            android:visibility="@{showShimmer?View.GONE:View.VISIBLE}"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:id="@+id/cvProfile"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:cardCornerRadius="70dp"
+                android:layout_height="60dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    app:netImageSrc="@{data.profile_image_url}"
+                    android:layout_height="match_parent"/>
+            </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_marginStart="15dp"
+                android:id="@+id/llDetail"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cvProfile"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="@{data.name}"
+                    style="@style/StyleMediumFont"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/textMobile"
+                    android:text="@{String.valueOf(data.mobile)}"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:paddingVertical="4dp"
+                    android:textColor="@color/color_theme_100"
+                    app:drawableStartCompat="@drawable/svg_phone" />
+
+                <LinearLayout
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cvProfile"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/status"
+                        android:textColor="@color/color_grey_100"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginStart="3dp"
+                        android:layout_width="wrap_content"
+                        app:htmlText="@{data.status_lable}"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llDetail"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:id="@+id/inclConnections"
+                    app:btnIcon="@{@drawable/img_connection}"
+                    layout="@layout/layout_custom_border_btn"/>
+
+                <include
+                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_marginStart="15dp"
+                    android:id="@+id/inclViewDetails"
+                    app:btnIcon="@{@drawable/img_view_details}"
+                    layout="@layout/layout_custom_border_btn"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

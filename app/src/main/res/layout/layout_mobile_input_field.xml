@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/llNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="1dp"
+        android:background="@drawable/bg_input_field"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/StyleBoldFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawablePadding="10dp"
+            android:padding="11dp"
+            android:text="@string/_91"
+            app:drawableStartCompat="@drawable/img_flag" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="7dp"
+            android:background="@color/color_black_90" />
+
+        <EditText
+            android:id="@+id/edtNumber"
+            style="@style/StyleInputField"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/your_number"
+            android:inputType="number"
+            android:maxLength="10" />
+
+    </LinearLayout>
+</layout>

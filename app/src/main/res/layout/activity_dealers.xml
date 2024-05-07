@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable
+            name="isPageProgress"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activities.Dealers.DealersActivity">
+
+        <include
+            android:id="@+id/inclTitleBar"
+            layout="@layout/layout_common_title_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@{@string/dealers}" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/llNestedScroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inclTitleBar"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDealers"
+                    android:layout_width="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+                <include
+                    android:id="@+id/clNoItemFound"
+                    layout="@layout/layout_no_item_found"
+                    android:layout_width="match_parent"
+                    app:icon="@{@drawable/svg_business_dealer_add}"
+                    app:message="@{@string/dealerNotFound}"
+                    app:btnText="@{@string/addDealer}"
+                    android:layout_height="match_parent" />
+
+
+                <include
+                    layout="@layout/layout_progressbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:visible="@{isPageProgress}" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
